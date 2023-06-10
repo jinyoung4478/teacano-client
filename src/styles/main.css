@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'DM Sans', 'Noto Sans KR', sans-serif;
+}
+
+.bgLinear {
+  background: linear-gradient(249.78deg, #a963fb -1.12%, #35d3ff 103.12%);
+}
+
+.prevent-ghost {
+  -webkit-user-drag: none;
+}
