@@ -18,13 +18,16 @@
    "dependencies": {
       "@material-tailwind/react": "^2.0.1",
       "axios": "^1.4.0",
+      "framer-motion": "^10.12.16",
+      "node-sass": "^9.0.0",
       "react": "^18.2.0",
       "react-dom": "^18.2.0",
       "react-hook-form": "^7.44.3",
       "react-markdown": "^8.0.7",
       "react-router-dom": "^6.11.2",
       "recoil": "^0.7.7",
-      "remark-gfm": "^3.0.1"
+      "remark-gfm": "^3.0.1",
+      "sass": "^1.63.4"
    },
    "devDependencies": {
       "@tailwindcss/typography": "^0.5.9",
