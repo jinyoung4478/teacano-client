@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Root from '@/Root';
 import { NotLoginRequire } from '@/components/LoginRequire';
 import Home from '@/pages/Home';
+import NotFound from '@/pages/NotFound';
 
 const routes = createBrowserRouter([
    {
@@ -16,6 +17,7 @@ const routes = createBrowserRouter([
             element: <NotLoginRequire />,
          },
       ],
+      errorElement: <NotFound />,
    },
 ]);
 
