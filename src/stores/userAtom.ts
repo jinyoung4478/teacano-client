@@ -1,4 +1,4 @@
-import {atomWithLocalStorage} from '@/stores/common';
+import { atomWithLocalStorage } from "@/stores/common";
 
 interface IUserState {
   isLoggedIn: boolean;
@@ -11,6 +11,6 @@ export const INIT_USER_STATE = {
 };
 
 export const userState = atomWithLocalStorage<IUserState>(
-  'userState',
+  "userState",
   INIT_USER_STATE
 );

@@ -1,4 +1,4 @@
-import {atom, RecoilState} from 'recoil';
+import { atom, RecoilState } from "recoil";
 
 // 새로고침 시에도 recoil 상태값 유지해야할 경우 사용하는 유틸 (session storage)
 export const atomWithLocalStorage = <T>(
@@ -12,7 +12,7 @@ export const atomWithLocalStorage = <T>(
     key: key,
     default: initialData,
     effects_UNSTABLE: [
-      ({onSet}) => {
+      ({ onSet }) => {
         onSet((newValue) => {
           localStorage.setItem(key, JSON.stringify(newValue));
         });
