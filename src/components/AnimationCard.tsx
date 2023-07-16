@@ -5,7 +5,7 @@ function AnimationCard() {
     <div className="relative w-[500px] h-[300px]">
       <div className="absolute w-[300px] h-[200px] top-[50px] left-[100px] border-2 border-gray-200 rounded-lg flex flex-col">
         <h3 className="text-center my-4 text-lg font-bold text-gray-600">
-          Hello
+          Card
         </h3>
       </div>
       <GradientTracing1
