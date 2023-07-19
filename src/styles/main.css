@@ -19,5 +19,5 @@
 }
 
 .text-clamp {
-  font-size: clamp(36px, 4vw, 56px);
+  font-size: clamp(36px, 4vw, 48px);
 }
