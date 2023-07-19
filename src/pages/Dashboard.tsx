@@ -1,4 +1,4 @@
-import { Responsive, WidthProvider } from "react-grid-layout";
+import { Responsive, WidthProvider, Layout } from "react-grid-layout";
 import { Header, Main, Footer } from "@/components/layouts";
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
@@ -12,6 +12,16 @@ const layout = [
 ];
 
 const Dashboard = () => {
+  const getLayouts = () => {
+    const savedLayouts = localStorage.getItem("grid-layout");
+
+    return savedLayouts ? JSON.parse(savedLayouts) : { lg: layout };
+  };
+
+  const handleLayoutChange = (layouts: Layout[]) => {
+    localStorage.setItem("grid-layout", JSON.stringify(layouts));
+  };
+
   return (
     <>
       <Header />
@@ -19,12 +29,13 @@ const Dashboard = () => {
         <h1 className="text-center text-clamp my-12">Dashboard</h1>
         <div className="p-8 bg-red-100">
           <ResponsiveGridLayout
-            layouts={{ lg: layout }}
+            layouts={getLayouts()}
             breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
             cols={{ lg: 5, md: 4, sm: 3, xs: 2, xxs: 1 }}
             rowHeight={300}
             width={1000}
             isResizable={true}
+            onLayoutChange={handleLayoutChange}
           >
             {layout.map((item) => (
               <div key={item.i} className="bg-[#f5f5f5]">
