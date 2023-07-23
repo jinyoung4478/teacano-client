@@ -4,6 +4,7 @@ import { NotLoginRequire } from "@/components/LoginRequire";
 import Home from "@/pages/Home";
 import Todo from "@/pages/Todo";
 import Dashboard from "@/pages/Dashboard";
+import SortableComponent from "@/pages/Sortable";
 import NotFound from "@/pages/NotFound";
 
 const routes = createBrowserRouter([
@@ -22,6 +23,10 @@ const routes = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "/sortable",
+        element: <SortableComponent />,
       },
       {
         element: <NotLoginRequire />,
