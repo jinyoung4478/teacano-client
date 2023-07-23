@@ -2,6 +2,7 @@ import { FC, useState } from "react";
 import styled from "styled-components";
 import { ReactSortable, SortableOptions } from "react-sortablejs";
 import { Header, Main, Footer } from "@/components/layouts";
+import { Bars3Icon } from "@heroicons/react/20/solid";
 
 interface Block {
   id: number;
@@ -20,13 +21,19 @@ interface IBlockItem {
 
 const StyledBlockWrapper = styled.div`
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   background: white;
   padding: 20px;
   margin-bottom: 10px;
   border: 1px solid lightgray;
   border-radius: 4px;
-  cursor: move;
+`;
+
+const BlockHeader = styled.div`
+  display: flex;
+  gap: 1rem;
 `;
 
 const sortableOptions: SortableOptions = {
@@ -36,6 +43,7 @@ const sortableOptions: SortableOptions = {
   ghostClass: "ghost",
   group: "shared",
   forceFallback: true,
+  handle: ".handle",
 };
 
 function Container({ block, blockIndex, setBlocks }: IBlockItem) {
@@ -79,7 +87,10 @@ function BlockWrapper({ block, blockIndex, setBlocks }: IBlockItem) {
   if (block.type === "container") {
     return (
       <StyledBlockWrapper>
-        container: {block.content}
+        <BlockHeader>
+          <Bars3Icon width={16} className="handle cursor-move" />
+          container: {block.content}
+        </BlockHeader>
         <Container
           block={block}
           setBlocks={setBlocks}
@@ -122,41 +133,7 @@ const INIT_BLOCKS = [
     content: "item 4",
     parent_id: null,
     type: "container",
-    children: [
-      {
-        id: 5,
-        content: "item 5",
-        width: 3,
-        parent_id: 4,
-        type: "container",
-        children: [
-          {
-            id: 8,
-            content: "item 8",
-            width: 6,
-            type: "container",
-            parent_id: 5,
-            children: [],
-          },
-          {
-            id: 9,
-            content: "item 9",
-            width: 6,
-            type: "container",
-            parent_id: 5,
-            children: [],
-          },
-        ],
-      },
-      {
-        id: 6,
-        content: "item 6",
-        width: 2,
-        type: "container",
-        parent_id: 4,
-        children: [],
-      },
-    ],
+    children: [],
   },
 ];
 
@@ -169,7 +146,12 @@ const SortablePage: FC = () => {
       <Main>
         <h1 className="text-center text-clamp my-12">Sortable</h1>
         <div className="px-5">
-          <ReactSortable list={blocks} setList={setBlocks} {...sortableOptions}>
+          <ReactSortable
+            list={blocks}
+            setList={setBlocks}
+            {...sortableOptions}
+            className="grid-container"
+          >
             {blocks.map((block, blockIndex) => (
               <BlockWrapper
                 key={block.id}
