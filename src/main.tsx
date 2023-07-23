@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import { RecoilRoot } from "recoil";
@@ -14,13 +13,11 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  <React.StrictMode>
-    <ThemeProvider>
-      <RecoilRoot>
-        <QueryClientProvider client={queryClient}>
-          <RouterProvider router={routes} />
-        </QueryClientProvider>
-      </RecoilRoot>
-    </ThemeProvider>
-  </React.StrictMode>
+  <ThemeProvider>
+    <RecoilRoot>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={routes} />
+      </QueryClientProvider>
+    </RecoilRoot>
+  </ThemeProvider>
 );
