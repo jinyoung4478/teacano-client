@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 // import { useLocation } from 'react-router-dom';
 // import { useRecoilState } from 'recoil';
 
-export function Header() {
+export const Header = () => {
   // const [user, setUser] = useRecoilState(userState);
   // const { pathname } = useLocation();
 
@@ -25,4 +25,4 @@ export function Header() {
       </div>
     </header>
   );
-}
+};

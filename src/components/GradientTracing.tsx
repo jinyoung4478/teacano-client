@@ -6,11 +6,7 @@ interface IGradientTracingProps {
   path: string;
 }
 
-export function GradientTracing1({
-  width,
-  height,
-  path,
-}: IGradientTracingProps) {
+const GradientTracing = ({ width, height, path }: IGradientTracingProps) => {
   return (
     <div className="absolute bottom-0 left-[83px]">
       <svg
@@ -48,4 +44,6 @@ export function GradientTracing1({
       </svg>
     </div>
   );
-}
+};
+
+export default GradientTracing;
