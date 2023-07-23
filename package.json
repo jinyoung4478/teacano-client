@@ -29,7 +29,8 @@
     "recoil": "^0.7.7",
     "remark-gfm": "^3.0.1",
     "sass": "^1.63.4",
-    "sortablejs": "^1.15.0"
+    "sortablejs": "^1.15.0",
+    "styled-components": "^6.0.5"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9",
