@@ -16,6 +16,7 @@ export function Header() {
           </Link>
           <Link to="/todos">Todo</Link>
           <Link to="/dashboard">Dashboard</Link>
+          <Link to="/grid">Grid</Link>
           <Link to="/sortable">Sortable</Link>
         </div>
         <Link to="/login">

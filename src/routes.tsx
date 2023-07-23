@@ -4,6 +4,7 @@ import { NotLoginRequire } from "@/components/LoginRequire";
 import Home from "@/pages/Home";
 import Todo from "@/pages/Todo";
 import Dashboard from "@/pages/Dashboard";
+import Grid from "@/pages/Grid";
 import SortablePage from "@/pages/Sortable";
 import NotFound from "@/pages/NotFound";
 
@@ -23,6 +24,10 @@ const routes = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "/grid",
+        element: <Grid />,
       },
       {
         path: "/sortable",
