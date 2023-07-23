@@ -1,4 +1,4 @@
-import { Header, Main, Footer } from "@/components/layouts";
+import { Header, Main, Footer } from "@/components/common";
 
 const Todo = () => {
   return (

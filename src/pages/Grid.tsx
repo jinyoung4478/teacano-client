@@ -1,5 +1,5 @@
 import { Responsive, WidthProvider, Layout } from "react-grid-layout";
-import { Header, Main, Footer } from "@/components/layouts";
+import { Header, Main, Footer } from "@/components/common";
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 

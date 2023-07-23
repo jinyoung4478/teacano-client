@@ -1,7 +1,4 @@
-import { Responsive, WidthProvider, Layout } from "react-grid-layout";
-import { Header, Main, Footer } from "@/components/layouts";
-
-const ResponsiveGridLayout = WidthProvider(Responsive);
+import { Header, Main, Footer } from "@/components/common";
 
 const Dashboard = () => {
   return (
@@ -9,6 +6,7 @@ const Dashboard = () => {
       <Header />
       <Main>
         <h1 className="text-center text-clamp my-12">Dashboard</h1>
+        <div className="p-8"></div>
       </Main>
       <Footer />
     </>
