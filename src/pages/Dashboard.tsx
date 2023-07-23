@@ -3,7 +3,7 @@ import { Header, Main, Footer } from "@/components/layouts";
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
-const layout = [
+const INIT_LAYOUT = [
   { i: "Grid Item 1", x: 0, y: 0, w: 1, h: 1 },
   { i: "Grid Item 2", x: 1, y: 0, w: 1, h: 1 },
   { i: "Grid Item 3", x: 2, y: 0, w: 1, h: 1 },
@@ -14,12 +14,11 @@ const layout = [
 const Dashboard = () => {
   const getLayouts = () => {
     const savedLayouts = localStorage.getItem("grid-layout");
-
-    return savedLayouts ? JSON.parse(savedLayouts) : { lg: layout };
+    return savedLayouts ? JSON.parse(savedLayouts) : { lg: INIT_LAYOUT };
   };
 
   const handleLayoutChange = (layouts: Layout[]) => {
-    localStorage.setItem("grid-layout", JSON.stringify(layouts));
+    localStorage.setItem("grid-layout", JSON.stringify({ lg: layouts }));
   };
 
   return (
@@ -32,12 +31,12 @@ const Dashboard = () => {
             layouts={getLayouts()}
             breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
             cols={{ lg: 5, md: 4, sm: 3, xs: 2, xxs: 1 }}
-            rowHeight={300}
+            rowHeight={200}
             width={1000}
             isResizable={true}
             onLayoutChange={handleLayoutChange}
           >
-            {layout.map((item) => (
+            {INIT_LAYOUT.map((item) => (
               <div key={item.i} className="bg-[#f5f5f5]">
                 <div className="p-2">{item.i}</div>
               </div>
