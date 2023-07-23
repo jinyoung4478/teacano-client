@@ -5,6 +5,7 @@ import Home from "@/pages/Home";
 import Dashboard from "@/pages/Dashboard";
 import Grid from "@/pages/Grid";
 import SortablePage from "@/pages/Sortable";
+import DndPage from "@/pages/Dnd";
 import NotFound from "@/pages/NotFound";
 
 const routes = createBrowserRouter([
@@ -27,6 +28,10 @@ const routes = createBrowserRouter([
       {
         path: "/sortable",
         element: <SortablePage />,
+      },
+      {
+        path: "/dnd",
+        element: <DndPage />,
       },
       {
         element: <NotLoginRequire />,
