@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "@/Root";
 import { NotLoginRequire } from "@/components/LoginRequire";
 import Home from "@/pages/Home";
-import Todo from "@/pages/Todo";
 import Dashboard from "@/pages/Dashboard";
 import Grid from "@/pages/Grid";
 import SortablePage from "@/pages/Sortable";
@@ -16,10 +15,6 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-      },
-      {
-        path: "/todos",
-        element: <Todo />,
       },
       {
         path: "/dashboard",
