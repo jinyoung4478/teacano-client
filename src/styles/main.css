@@ -2,8 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "d2coding";
+  src: url("./fonts/D2Coding.ttc");
+}
+
 :root {
   --geist-foreground: #ebebeb;
+  font-family: "d2coding";
 }
 
 :root {
