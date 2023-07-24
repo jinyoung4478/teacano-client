@@ -1,16 +1,13 @@
-import { useEffect, useState } from "react";
 import { Responsive, WidthProvider, Layout, Layouts } from "react-grid-layout";
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
 interface GridLayoutProps {
   layouts: Layouts;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
-const GridLayoutComponent = ({ layouts, children }: GridLayoutProps) => {
-  const [breakpoint, setBreakPoint] = useState("lg");
-
+const GridLayoutComponent = ({ layouts }: GridLayoutProps) => {
   const handleLayoutChange = (layouts: Layout[]) => {
     localStorage.setItem("grid-layout", JSON.stringify({ lg: layouts }));
   };
@@ -25,7 +22,7 @@ const GridLayoutComponent = ({ layouts, children }: GridLayoutProps) => {
       isResizable={true}
       onLayoutChange={handleLayoutChange}
     >
-      {layouts[breakpoint].map((item) => (
+      {layouts["lg"].map((item) => (
         <div key={item.i} className="bg-[#f5f5f5]">
           <div className="p-2">{item.i}</div>
         </div>
