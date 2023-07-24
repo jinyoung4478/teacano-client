@@ -6,7 +6,7 @@ import {
   Draggable,
   DropResult,
 } from "react-beautiful-dnd";
-import { Header, Main, Footer } from "@/components/layouts";
+import { Header, Main, Footer } from "@/components/common";
 
 interface ITask {
   id: string;

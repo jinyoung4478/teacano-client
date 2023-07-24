@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 // import { useLocation } from 'react-router-dom';
 // import { useRecoilState } from 'recoil';
 
-export function Header() {
+export const Header = () => {
   // const [user, setUser] = useRecoilState(userState);
   // const { pathname } = useLocation();
 
@@ -14,8 +14,8 @@ export function Header() {
           <Link to="/" className="mr-24">
             Home
           </Link>
-          <Link to="/todos">Todo</Link>
           <Link to="/dashboard">Dashboard</Link>
+          <Link to="/grid">Grid</Link>
           <Link to="/sortable">Sortable</Link>
           <Link to="/dnd">Dnd</Link>
         </div>
@@ -25,4 +25,4 @@ export function Header() {
       </div>
     </header>
   );
-}
+};

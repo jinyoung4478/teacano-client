@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import styled from "styled-components";
 import { ReactSortable, SortableOptions } from "react-sortablejs";
-import { Header, Main, Footer } from "@/components/layouts";
+import { Header, Main, Footer } from "@/components/common";
 import { Bars3Icon } from "@heroicons/react/20/solid";
 
 interface Block {
@@ -46,7 +46,7 @@ const sortableOptions: SortableOptions = {
   handle: ".handle",
 };
 
-function Container({ block, blockIndex, setBlocks }: IBlockItem) {
+const Container = ({ block, blockIndex, setBlocks }: IBlockItem) => {
   return (
     <>
       <ReactSortable
@@ -81,9 +81,9 @@ function Container({ block, blockIndex, setBlocks }: IBlockItem) {
       </ReactSortable>
     </>
   );
-}
+};
 
-function BlockWrapper({ block, blockIndex, setBlocks }: IBlockItem) {
+const BlockWrapper = ({ block, blockIndex, setBlocks }: IBlockItem) => {
   if (block.type === "container") {
     return (
       <StyledBlockWrapper>
@@ -101,7 +101,7 @@ function BlockWrapper({ block, blockIndex, setBlocks }: IBlockItem) {
   }
 
   return <StyledBlockWrapper>text: {block.content}</StyledBlockWrapper>;
-}
+};
 
 const INIT_BLOCKS = [
   {

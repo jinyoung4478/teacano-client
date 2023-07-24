@@ -1,7 +1,7 @@
-import { Header, Main, Footer } from "@/components/layouts";
+import { Header, Main, Footer } from "@/components/common";
 import AnimationCard from "@/components/AnimationCard";
 
-function Home() {
+const Home = () => {
   return (
     <>
       <Header />
@@ -14,6 +14,6 @@ function Home() {
       <Footer />
     </>
   );
-}
+};
 
 export default Home;

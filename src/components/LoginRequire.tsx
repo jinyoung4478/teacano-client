@@ -3,7 +3,7 @@ import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { userState, INIT_USER_STATE } from "@/stores/userAtom";
 
-export function LoginRequire() {
+export const LoginRequire = () => {
   const [user, setUser] = useRecoilState(userState);
   const location = useLocation();
 
@@ -16,7 +16,7 @@ export function LoginRequire() {
   ) : (
     <Navigate to={`/sign-in?redirect=${location.pathname}`} />
   );
-}
+};
 
 export function NotLoginRequire() {
   const user = useRecoilValue(userState);

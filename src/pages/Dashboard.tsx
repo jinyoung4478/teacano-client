@@ -1,24 +1,24 @@
 import { Responsive, WidthProvider, Layout } from "react-grid-layout";
-import { Header, Main, Footer } from "@/components/layouts";
+import { DragDropContext, DropResult } from "react-beautiful-dnd";
+import { Bars3Icon } from "@heroicons/react/20/solid";
+import { Header, Main, Footer } from "@/components/common";
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
 const INIT_LAYOUT = [
-  { i: "Grid Item 1", x: 0, y: 0, w: 1, h: 1 },
-  { i: "Grid Item 2", x: 1, y: 0, w: 1, h: 1 },
-  { i: "Grid Item 3", x: 2, y: 0, w: 1, h: 1 },
-  { i: "Grid Item 4", x: 3, y: 0, w: 1, h: 1 },
-  { i: "Grid Item 5", x: 4, y: 0, w: 1, h: 1 },
+  { i: "Grid Item 1", x: 0, y: 0, w: 4, h: 4 },
+  // { i: "Grid Item 2", x: 4, y: 0, w: 4, h: 2 },
+  // { i: "Grid Item 3", x: 8, y: 0, w: 2, h: 2 },
+  // { i: "Grid Item 4", x: 4, y: 2, w: 6, h: 2 },
 ];
 
 const Dashboard = () => {
-  const getLayouts = () => {
-    const savedLayouts = localStorage.getItem("grid-layout");
-    return savedLayouts ? JSON.parse(savedLayouts) : { lg: INIT_LAYOUT };
+  const handleLayoutChange = (layouts: Layout[]) => {
+    console.log(layouts);
   };
 
-  const handleLayoutChange = (layouts: Layout[]) => {
-    localStorage.setItem("grid-layout", JSON.stringify({ lg: layouts }));
+  const onDragEnd = (info: DropResult) => {
+    console.log("Drag", info);
   };
 
   return (
@@ -26,22 +26,29 @@ const Dashboard = () => {
       <Header />
       <Main>
         <h1 className="text-center text-clamp my-12">Dashboard</h1>
-        <div className="p-8 bg-red-100">
-          <ResponsiveGridLayout
-            layouts={getLayouts()}
-            breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
-            cols={{ lg: 5, md: 4, sm: 3, xs: 2, xxs: 1 }}
-            rowHeight={200}
-            width={1000}
-            isResizable={true}
-            onLayoutChange={handleLayoutChange}
-          >
-            {INIT_LAYOUT.map((item) => (
-              <div key={item.i} className="bg-[#f5f5f5]">
-                <div className="p-2">{item.i}</div>
-              </div>
-            ))}
-          </ResponsiveGridLayout>
+        <div className="p-8">
+          <DragDropContext onDragEnd={onDragEnd}>
+            <ResponsiveGridLayout
+              layouts={{ lg: INIT_LAYOUT }}
+              breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
+              cols={{ lg: 10, md: 8, sm: 6, xs: 4, xxs: 2 }}
+              rowHeight={100}
+              width={1000}
+              isResizable={true}
+              onLayoutChange={handleLayoutChange}
+              draggableHandle=".handle"
+            >
+              {INIT_LAYOUT.map((item) => (
+                <div key={item.i} className="bg-[#f5f5f5] p-4">
+                  <p className="flex gap-2 mb-2">
+                    <Bars3Icon width={16} className="handle cursor-move" />
+                    {item.i}
+                  </p>
+                  <div className="p-4 bg-gray-200">123</div>
+                </div>
+              ))}
+            </ResponsiveGridLayout>
+          </DragDropContext>
         </div>
       </Main>
       <Footer />
